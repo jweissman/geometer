@@ -1,6 +1,6 @@
 name: geometer
-summary: "TODO: Summary"
-description: "TODO: Description"
+summary: "geometry utilities"
+description: "compute distances between points and whether points are within regions"
 license: MIT
 authors: Joseph Weissman
 email: jweissman1986@gmail.com
