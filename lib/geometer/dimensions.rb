@@ -1,5 +1,7 @@
 module Geometer
   class Dimensions < Struct.new(:width, :height)
+    include Geometer::PointHelpers
+
     def inspect
       "#{width}x#{height}"
     end
@@ -39,5 +41,9 @@ module Geometer
       end
       locs
     end
+  end
+
+  module DimensionHelpers
+    def dim(w,h); Dimensions.new(w,h) end
   end
 end

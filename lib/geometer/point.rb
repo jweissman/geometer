@@ -13,4 +13,8 @@ module Geometer
       Point.new(x+dx, y+dy)
     end
   end
+
+  module PointHelpers
+    def coord(x,y); Point.new(x,y) end
+  end
 end
