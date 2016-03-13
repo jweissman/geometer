@@ -10,12 +10,14 @@ end
 
 describe Line do
   include PointHelpers
-  let(:point_a) { coord(0,3) }
-  let(:point_b) { coord(4,0) }
 
   describe "measuring the hypotenuse" do
-    it 'should find a 3-4-5 triangle' do
-      expect(Line.new(point_a,point_b).length).to eq(5)
+    context "of a 3-4-5 triangle" do
+      let(:point_a) { coord(0,3) }
+      let(:point_b) { coord(4,0) }
+      it 'should find the hypotenuse to be 5' do
+        expect(Line.new(point_a,point_b).length).to eq(5)
+      end
     end
 
     it 'should find a 1-1-root(2) triangle' do
@@ -32,9 +34,17 @@ describe Rectangle do
   let(:origin) { coord(1,1) }
   let(:dimensions) { dim(2,2) }
 
-  it 'should identify points within itself' do
-    expect(rectangle.contains?(coord(1,1))).to eq(true)
-    expect(rectangle.contains?(coord(1,0))).to eq(false)
-    expect(rectangle.contains?(coord(1,-1))).to eq(false)
+  describe "#area" do
+    it 'should have an area' do
+      expect(rectangle.area).to eq(4)
+    end
+  end
+
+  describe "#contains?" do
+    it 'should identify points within itself' do
+      expect(rectangle.contains?(coord(1,1))).to eq(true)
+      expect(rectangle.contains?(coord(1,0))).to eq(false)
+      expect(rectangle.contains?(coord(1,-1))).to eq(false)
+    end
   end
 end
