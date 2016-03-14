@@ -4,9 +4,20 @@ module Geometer
       "(#{x},#{y})"
     end
 
-    def -@
+    def invert
       Point.new(-x,-y)
     end
+    alias_method :-@, :invert
+    
+    def scale(sz)
+      Point.new(x*sz,y*sz)
+    end
+    alias_method :*, :scale
+
+    def divide(sz)
+      scale(1.0/sz)
+    end
+    alias_method :/, :divide
 
     def translate(other_point)
       dx,dy = *other_point

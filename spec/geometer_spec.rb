@@ -8,6 +8,22 @@ describe Geometer do
   end
 end
 
+describe Point do
+  include PointHelpers
+  let(:a) { coord(0,5) }
+  it 'should invert' do
+    expect(-a).to eq(coord(0,-5))
+  end
+
+  it 'should scale' do
+    expect(a*5).to eq(coord(0,25))
+  end
+
+  it 'should divide' do
+    expect(a/2).to eq(coord(0,2.5))
+  end
+end
+
 describe Line do
   include PointHelpers
 
