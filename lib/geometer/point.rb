@@ -23,6 +23,10 @@ module Geometer
       dx,dy = *other_point
       Point.new(x+dx, y+dy)
     end
+
+    def to_i
+      Point.new(x.to_i, y.to_i)
+    end
   end
 
   module PointHelpers
